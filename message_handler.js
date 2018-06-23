@@ -117,7 +117,7 @@ var processMessage = (event) => {
 - Unconscious\n",
 				},
 				{
-					text: "Is this correct?"
+					text: "Is this correct?",
 					quick_replies: [
 						{
     					content_type: "text",

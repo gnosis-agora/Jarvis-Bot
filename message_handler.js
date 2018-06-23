@@ -12,3 +12,5 @@ var processMessage = (event) => {
 	    }
 	}
 }
+
+export default processMessage

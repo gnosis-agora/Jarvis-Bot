@@ -4,41 +4,8 @@ var processMessage = (event) => {
 	var message = event.message;
 	var senderId = event.sender.id;
 
-	if (message.text) {
-		let prompts = ["hello","hi","yo","what up","hey","hey there","get started","help"];
-	    let potentialStart = message.text.toLowerCase().replace(/[?.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
-	    if (prompts.indexOf(potentialStart) != -1) {
-	    	sendMessage(senderId,[
-	    		{
-	    			text: "Hello, What is your emergency?",
-	    			quick_replies: [
-	    				{
-	    					content_type: "text",
-	              title: "Fainted",
-	              payload: "fainted"
-	    				},
-	    				{
-	    					content_type: "text",
-	    					title: "Murder",
-	    					payload: "murder"
-	    				},
-	    				{
-	    					content_type: "text",
-	    					title: "Suicide",
-	    					payload: "suicide"
-	    				},
-	    				{
-	    					content_type: "text",
-	    					title: "Fire",
-	    					payload: "fire"
-	    				},
-	    			]
-	    		}])
-	    }
-	}
-	else if (message.quick_reply) {
+	if (message.quick_reply) {
 		let payload = message.quick_reply.payload;
-		console.log(payload);
 		if (payload == "fainted") {
 			sendMessage(senderId, [
 				{
@@ -97,6 +64,38 @@ var processMessage = (event) => {
 				}
 			])
 		}
+	}
+	else{
+	let prompts = ["hello","hi","yo","what up","hey","hey there","get started","help"];
+    let potentialStart = message.text.toLowerCase().replace(/[?.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+    if (prompts.indexOf(potentialStart) != -1) {
+    	sendMessage(senderId,[
+    		{
+    			text: "Hello, What is your emergency?",
+    			quick_replies: [
+    				{
+    					content_type: "text",
+              title: "Fainted",
+              payload: "fainted"
+    				},
+    				{
+    					content_type: "text",
+    					title: "Murder",
+    					payload: "murder"
+    				},
+    				{
+    					content_type: "text",
+    					title: "Suicide",
+    					payload: "suicide"
+    				},
+    				{
+    					content_type: "text",
+    					title: "Fire",
+    					payload: "fire"
+    				},
+    			]
+    		}])
+    }
 	}
 }
 

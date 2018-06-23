@@ -46,7 +46,7 @@ var processMessage = (event) => {
 			    attachment: {
 			      type: "image",
 			      payload: {
-			        attachment: "629905487377101",
+			        attachment_id: "629905487377101",
 			      }
 			    }
 				},

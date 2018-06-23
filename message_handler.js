@@ -46,8 +46,7 @@ var processMessage = (event) => {
 			    attachment: {
 			      type: "image",
 			      payload: {
-			        url: "https://imgur.com/a/0HbA0um",
-			        is_reusable: "true"
+			        attachment: "629905487377101",
 			      }
 			    }
 				},

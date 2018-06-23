@@ -21,7 +21,7 @@ var processMessage = (event) => {
 	}
 
 	else if (message.attachments) {
-		let attachment  = message.attachments;
+		let attachment  = message.attachments[0];
 		console.log("hit");
 		// if location sent
 		if (attachment.type == "location") {

@@ -38,7 +38,7 @@ var processMessage = (event) => {
 	}
 	else if (message.quick_reply) {
 		let payload = message.quick_reply.payload;
-
+		console.log(payload);
 		if (payload == "fainted") {
 			sendMessage(senderId, [
 				{

@@ -89,7 +89,7 @@ var processMessage = (event) => {
 					text: "Please help me to assess the situation.",
 				},
 				{
-					text: "Is he responsive?"
+					text: "Is he responsive?",
 					quick_replies: [
 						{
     					content_type: "text",

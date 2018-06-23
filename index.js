@@ -2,6 +2,7 @@ import express from "express";
 import request from "request";
 import bodyParser from "body-parser";
 import processPostback from './postback_handler.js';
+import processMessage from './message_handler.js';
 
 var app = express();
 app.use(bodyParser.urlencoded({extended: false}));

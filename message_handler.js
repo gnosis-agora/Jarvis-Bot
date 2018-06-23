@@ -64,6 +64,16 @@ var processMessage = (event) => {
 				}
 			])
 		}
+		else if (payload == "yes_correct") {
+			sendMessage(senderId, [
+				{
+					text: "Thank you for your assistance. Help is on the way."	
+				},
+				{
+					text: "Feel free to ask me any other questions."
+				}
+			])
+		}
 	}
 
 	else if (message.attachments) {
@@ -76,7 +86,10 @@ var processMessage = (event) => {
 					text: "Location sent to nearest hospital. An ambulance is on its way."
 				},
 				{
-					text: "Please help me to assess the situation. Is he responsive?",
+					text: "Please help me to assess the situation.",
+				},
+				{
+					text: "Is he responsive?"
 					quick_replies: [
 						{
     					content_type: "text",
@@ -102,21 +115,24 @@ var processMessage = (event) => {
 - Chinese male\n\
 - Aged 21-28\n\
 - Unconscious\n",
+				},
+				{
+					text: "Is this correct?"
 					quick_replies: [
 						{
     					content_type: "text",
     					title: "Yes",
-    					payload: "yes_heart_attack"
+    					payload: "yes_correct"
 						},
 						{
     					content_type: "text",
     					title: "No",
-    					payload: "no_heart_attack"
+    					payload: "no_correct"
 						},
 						{
     					content_type: "text",
     					title: "Unsure",
-    					payload: "no_heart_attack"							
+    					payload: "unsure_correct"							
 						}						
 					]
 				}

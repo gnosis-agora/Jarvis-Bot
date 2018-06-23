@@ -18,6 +18,53 @@ var processMessage = (event) => {
 				}	
 			])
 		}
+		else if (payload == "no_responsive") {
+			sendMessage(senderId, [
+				{	
+					text: "Are his/her eyes open?",
+					quick_replies: [
+						{
+    					content_type: "text",
+    					title: "Yes",
+    					payload: "yes_eyes_open"
+						},
+						{
+    					content_type: "text",
+    					title: "No",
+    					payload: "no_eyes_open"
+						},
+					]
+				}
+			])
+		}
+		else if (payload == "no_eyes_open") {
+			sendMessage(senderId, [
+				{	
+					text: "These are the steps required to perform CPR..."
+				},
+				{
+			    attachment: {
+			      type: "image",
+			      payload: {
+			        url: "https://imgur.com/a/0HbA0um",
+			        is_reusable: "true"
+			      }
+			    }
+				},
+				{
+					text: "Delivery of chest compressions. Note the overlapping hands placed on the center of the sternum, with the rescuer's arms extended. Chest compressions are to be delivered at a rate of at least 100 compressions per minute."					
+				},
+				{
+					text: "..."
+				},
+				{
+					text: "..."
+				},
+				{
+					text: "Please send a photo of the accident scene or victim's ID to speed up processes."
+				}
+			])
+		}
 	}
 
 	else if (message.attachments) {
@@ -27,10 +74,22 @@ var processMessage = (event) => {
 		if (attachment.type == "location") {
 			sendMessage(senderId, [
 				{
-					text: "Location received. An ambulance is on its way."
+					text: "Location sent to nearest hospital. An ambulance is on its way."
 				},
 				{
-					text: "In the meantime, can you send me a photo of the accident/crime scene?"
+					text: "Please help me to assess the situation. Is he responsive?",
+					quick_replies: [
+						{
+    					content_type: "text",
+    					title: "Yes",
+    					payload: "yes_responsive"
+						},
+						{
+    					content_type: "text",
+    					title: "No",
+    					payload: "no_responsive"
+						},
+					]
 				}
 			])
 		}
@@ -41,10 +100,9 @@ var processMessage = (event) => {
 				},
 				{
 					text: "From the image, I can tell that the victim is:\n\
-					- Chinese male\n\
-					- Aged 21-28\n\
-					- Unconscious\n\
-					Was the victim experiencing shortness of breath before collapsing?",
+- Chinese male\n\
+- Aged 21-28\n\
+- Unconscious\n",
 					quick_replies: [
 						{
     					content_type: "text",
